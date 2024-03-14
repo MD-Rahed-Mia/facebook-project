@@ -22,7 +22,7 @@ export default function Nav() {
   return (
     <div className="nav">
       <div className="nav-left">
-        <h1>Logo</h1>
+        <h1><Link to={"/"}>Logo</Link></h1>
       </div>
       <div className="nav-right">
         <div className="nav-right-icon">
