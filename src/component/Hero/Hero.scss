@@ -1,0 +1,40 @@
+.hero {
+  width: 100%;
+  min-height: 80vh;
+}
+
+.hero-img {
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 80%;
+  }
+}
+
+.hero-title {
+
+  padding: 2rem;
+
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2.5rem;
+    font-weight: 500;
+
+    span {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+  }
+
+  p {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 2rem;
+  }
+}

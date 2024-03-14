@@ -1,0 +1,68 @@
+.company-option {
+  width: 100%;
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      font-size: 14px;
+      cursor: pointer;
+      background: rgb(242, 234, 234);
+      border-radius: 4px;
+      padding: 5px;
+      min-width: 70px;
+
+      button {
+        background: none;
+        border: none;
+        outline: none;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+//all company listing 
+.all-company-list {
+  width: 100%;
+  padding: 10px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+
+    tr,
+    th,
+    td {
+      border: 1px solid gray;
+    }
+
+    th {
+      font-size: 14px;
+      font-weight: 300;
+      padding: 10px;
+    }
+
+    td {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 300;
+      height: 50px;
+    }
+
+    td:nth-child(3) {
+      width: 70px;
+    }
+  }
+}
+
+//add new company

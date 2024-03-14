@@ -1,0 +1,45 @@
+.product-page {
+  min-height: 80vh;
+
+  h2 {
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+//browse product here
+
+.browse-product {
+  min-height: 80vh;
+  padding: 1rem;
+
+  h2 {
+    font-weight: 500;
+    text-align: center;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+
+    th,
+    tr,
+    td {
+      text-align: center;
+      font-weight: 500;
+      border: 1px solid gray;
+      font-size: 13px;
+      padding: 5px;
+    }
+
+    td {
+      text-align: center;
+      font-size: 11px;
+    }
+  }
+}
+
+.edit-product-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}

@@ -1,0 +1,40 @@
+.add-new-company {
+  min-height: 80vh;
+
+  h2 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem;
+  }
+
+  form {
+
+    div {
+      margin: 10px 0;
+    }
+
+
+    padding: 2rem;
+
+    label {
+      display: block;
+    }
+
+    input {
+      font-size: 14px;
+      padding: 5px;
+      width: 100%;
+    }
+
+    button {
+      padding: 8px 1.5rem;
+      width: 100%;
+      margin-top: 2rem;
+      color: white;
+      background-color: var(--primary-color);
+      border: none;
+      outline: none;
+    }
+  }
+}
