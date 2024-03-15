@@ -22,7 +22,9 @@ export default function Nav() {
   return (
     <div className="nav">
       <div className="nav-left">
-        <h1><Link to={"/"}>Logo</Link></h1>
+        <h1>
+          <Link to={"/"}>Logo</Link>
+        </h1>
       </div>
       <div className="nav-right">
         <div className="nav-right-icon">
@@ -35,9 +37,9 @@ export default function Nav() {
               className={search ? "search active" : "search"}
             />
             {search ? (
-              <RxCross1 onClick={handleSearch} />
+              <RxCross1 onClick={handleSearch} className="search-click-icon" />
             ) : (
-              <CiSearch onClick={handleSearch} />
+              <CiSearch onClick={handleSearch} className="search-click-icon" />
             )}
           </div>
 
