@@ -1,9 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
+const API_KEY = import.meta.env.REACT_APP_APP_KEY;
+const AUTH_DOMAIN = import.meta.env.REACT_APP_AUTH_DOMAIN;
+const PROJECT_ID = import.meta.env.REACT_APP_PROJECT_ID;
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCcjaux3KSaOQ8p7hoVL5eerrYlHH1Ay2o",
+  apiKey: API_KEY,
   authDomain: "product-management-ca714.firebaseapp.com",
   projectId: "product-management-ca714",
   storageBucket: "product-management-ca714.appspot.com",

@@ -1,9 +1,7 @@
 import React from "react";
 import "./Toast.scss";
 
-export default function Toast({ setSubmit, submit }) {
-
-
+export default function Toast({ setSubmit, submit, text }) {
   //reset toast after 4000ms
   if (submit) {
     setTimeout(() => {
@@ -11,5 +9,5 @@ export default function Toast({ setSubmit, submit }) {
     }, 4000);
   }
 
-  return <div className="toast">save successful</div>;
+  return <div className="toast">{text}</div>;
 }

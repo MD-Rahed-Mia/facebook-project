@@ -6,20 +6,17 @@ import { addFirestore } from "../../Firebase/Firebase";
 import Toast from "../../component/Tools/Toast";
 
 export default function () {
-
   //set form data
   const [data, setData] = useState({});
   //handle toast
   const [submit, setSubmit] = useState(false);
-
-
 
   //handle form on submit
   function handleForm(event) {
     event.preventDefault();
     try {
       addFirestore(data, setSubmit);
-      document.getElementById('add-company-form').reset();
+      document.getElementById("add-company-form").reset();
     } catch (error) {
       console.log(error.message);
     }
@@ -31,14 +28,13 @@ export default function () {
     setData((prevData) => ({ ...prevData, [name]: value }));
   }
 
-
   return (
     <Layout>
-
-      {
-        submit ?
-          <Toast setSubmit={setSubmit} submit={submit} /> : ""
-      }
+      {submit ? (
+        <Toast setSubmit={setSubmit} submit={submit} text="added successful" />
+      ) : (
+        ""
+      )}
 
       <div className="add-new-company">
         <Navigation
@@ -57,7 +53,6 @@ export default function () {
               id="name"
               placeholder="name"
               required
-
               onChange={(event) => handleFormData(event)}
             />
           </div>
@@ -84,7 +79,9 @@ export default function () {
             />
           </div>
           <div>
-            <button type="submit" onClick={handleForm}>submit</button>
+            <button type="submit" onClick={handleForm}>
+              submit
+            </button>
           </div>
         </form>
       </div>

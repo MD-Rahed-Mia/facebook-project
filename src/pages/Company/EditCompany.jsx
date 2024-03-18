@@ -2,12 +2,19 @@ import React, { useEffect, useState } from "react";
 import "./EditCompany.scss";
 import Layout from "./../../Layout.jsx";
 import Navigation from "../../component/Tools/Navigation.jsx";
-import { getCompanyDetails, selectedCompany } from "../../Firebase/Firebase.js";
+import {
+  getCompanyDetails,
+  selectedCompany,
+  updateDetails,
+} from "../../Firebase/Firebase.js";
+import Toast from "../../component/Tools/Toast.jsx";
 
 export default function EditCompany() {
   const [company, setCompany] = useState(false);
   const [selectCompany, setSelectCompany] = useState(false);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
+
+  const [submit, setSubmit] = useState(false);
 
   //handle company
   function handleCompany(event) {
@@ -23,17 +30,34 @@ export default function EditCompany() {
     selectedCompany(selectCompany, setData);
   }, [selectCompany]);
 
-  //handle submit form
-  function handleEditForm(event) {
-    event.preventDefault();
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   }
 
-  //handle form value
-  function handleFormValue() { }
+  function handleEditForm(event) {
+    event.preventDefault();
+
+    try {
+      updateDetails(data, setSubmit);
+    } catch (error) {}
+  }
 
   return (
     <Layout>
       <div className="edit-company">
+        {submit ? (
+          <Toast
+            submit={submit}
+            setSubmit={setSubmit}
+            text="update successful"
+          />
+        ) : (
+          ""
+        )}
         <h2>Edit company details</h2>
         <Navigation
           path="/company/"
@@ -41,7 +65,6 @@ export default function EditCompany() {
         />
 
         <form action="">
-          {data && console.log(data)}
           <div>
             <label htmlFor="select-company">Select Company</label>
             <select
@@ -62,16 +85,14 @@ export default function EditCompany() {
           </div>
           {selectCompany ? (
             <section>
-
               <div>
-                <label htmlFor="ID">ID</label>
+                <label htmlFor="hello">ID</label>
                 <input
                   type="text"
-                  name="ID"
-                  id="ID"
-                  placeholder="ID"
-                  value={data ? data.companyId : ""}
-                  onChange={(event) => setData(event.target.value)}
+                  name="hello"
+                  id="hello"
+                  placeholder="id"
+                  value={data && data.companyId}
                   readOnly
                 />
               </div>
@@ -82,9 +103,8 @@ export default function EditCompany() {
                   name="name"
                   id="name"
                   placeholder="name"
-                  value={data ? data.name : ""}
-                  onChange={(event) => setData(event.target.value)}
-                  
+                  value={data.name}
+                  onChange={(event) => handleChange(event)}
                 />
               </div>
               <div>
@@ -94,8 +114,8 @@ export default function EditCompany() {
                   name="description"
                   id="description"
                   placeholder="description"
-                  value={data && data.description}
-                  onChange={(event) => setData(event.target.value)}
+                  value={data.description}
+                  onChange={(event) => handleChange(event)}
                 />
               </div>
               <div>
@@ -105,8 +125,8 @@ export default function EditCompany() {
                   name="address"
                   id="address"
                   placeholder="address"
-                  value={data && data.address}
-                  onChange={(event) => setData(event.target.value)}
+                  value={data.address}
+                  onChange={(event) => handleChange(event)}
                 />
               </div>
               <div>
